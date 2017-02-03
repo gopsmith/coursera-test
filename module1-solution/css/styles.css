@@ -1,0 +1,15 @@
+.good-text {
+  color: green;
+}
+
+.good-border {
+  border-color: green;
+}
+
+.bad-text {
+  color: red;
+}
+
+.bad-border {
+  border-color: red;
+}
