@@ -20,7 +20,7 @@
       else {
         var numItems = $scope.lunchItems
           .split(",")
-          .filter( function(val) {return val != ""} )
+          .filter( function(val) {return val.trim() != ""} )
           .length;
         $scope.message = (numItems <=3 ? "Enjoy!" : "Too much!");
         $scope.messageFeedback = "good-text"
