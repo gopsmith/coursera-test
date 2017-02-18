@@ -16,10 +16,10 @@
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
-      <input type="text" ng-model="narr.searchText" placeholder="search menu items"></input>
+      <input type="text" ng-model="narr.searchText" placeholder="search menu items" class="form-control"></input>
     </div>
     <div class="form-group narrow-button">
-      <button ng-click="narr.getMatchedMenuItems(narr.searchText);">Narrow It Down For Me!</button>
+      <button class="btn btn-primary" ng-click="narr.getMatchedMenuItems(narr.searchText);">Narrow It Down For Me!</button>
     </div>
     <div class="result" ng-if="narr.found">
       <found-items
