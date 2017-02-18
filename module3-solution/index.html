@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Narrow Down Your Menu Choice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/jquery-3.1.0.min.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body ng-app="NarrowItDownApp">
+
+  <div class="container" ng-controller="NarrowItDownController as narr">
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+
+    <div class="form-group">
+      <input type="text" ng-model="narr.searchText" placeholder="search menu items"></input>
+    </div>
+    <div class="form-group narrow-button">
+      <button ng-click="narr.getMatchedMenuItems(narr.searchText);">Narrow It Down For Me!</button>
+    </div>
+    <div class="result">
+      <found-items
+        found="narr.found"
+        on-remove="narr.removeItem(index)">   <!--index is a placeholder label! actual value is passed in from the directive (foundItems.html)-->
+      </found-items>
+    </div>
+  </div>
+
+</body>
+</html>

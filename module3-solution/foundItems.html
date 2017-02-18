@@ -1,0 +1,8 @@
+<h4>Matching Menu Items ({{ narr.found.length }}):</h4>
+<ul>
+  <li ng-repeat="item in narr.found">
+    {{ item.name }}, {{ item.short_name }}, {{ item.description }}
+    <button ng-click="narr.onRemove({index: $index});">Don't want this one!</button> <!--argument is a MAP object; the KEY part connects with the placeholder `index` in controller's html (index.html)-->
+  </li>
+</ul>
+<div class="error" ng-if="narr.found.length === 0">Nothing found</div>
