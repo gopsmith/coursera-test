@@ -21,7 +21,7 @@
     <div class="form-group narrow-button">
       <button ng-click="narr.getMatchedMenuItems(narr.searchText);">Narrow It Down For Me!</button>
     </div>
-    <div class="result">
+    <div class="result" ng-if="narr.found">
       <found-items
         found="narr.found"
         on-remove="narr.removeItem(index)">   <!--index is a placeholder label! actual value is passed in from the directive (foundItems.html)-->

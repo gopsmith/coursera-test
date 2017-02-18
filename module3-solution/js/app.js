@@ -26,7 +26,7 @@ NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
   var narro = this;
   narro.searchText = "";
-  narro.found = [];
+  //leave narro.found undefined until first search creates it
 
   narro.getMatchedMenuItems = function (searchText) {
     if (searchText === "") {
