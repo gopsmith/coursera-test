@@ -1,0 +1,60 @@
+<div class="container">
+  <h2 id="menu-categories-title" class="text-center">Sign Up</h2>
+  <div class="text-center">
+    Please provide your details, and your favorite menu item number:
+  </div>
+
+  <form name='signupForm' novalidate>
+    <input type="text" name="firstname" placeholder="First Name"
+      ng-model="signupCtrl.firstname"
+      required>
+    <br>
+
+    <input type="text" name="lastname" placeholder="Last Name"
+      ng-model="signupCtrl.lastname"
+      required>
+    <br>
+
+    <input type="text" name="email" placeholder="Email"
+      ng-model="signupCtrl.email"
+      pattern="\S+@\S+\.\S+"
+      required>
+    <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+      Email address must be in handle@domain.tld format
+    </span>
+    <br>
+
+    <input type="text" name="phone" placeholder="Phone ###-###-####"
+      ng-model="signupCtrl.phone"
+      pattern="(\d{3})-(\d{3})-(\d{4})"
+      required>
+    <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+      Phone must be in the format ###-###-####.
+    </span>
+    <br>
+
+    <input type="text" name="item-code" placeholder="Favorite Dish (as in 'A1')"
+      ng-model="signupCtrl.itemCode">
+      <!-- pattern="[A-Z,a-z]{1,2}[0-9]{1,2}"
+      minlength="2"
+      ng-maxlength="4"
+      required> -->
+    <br>
+
+    <button
+      ng-disabled="signupForm.$invalid"
+      ng-click="signupCtrl.submit()">Submit</button>
+    <!-- <div style="margin-top: 10px;">
+      Form valid? {{ signupForm.$valid }}
+    </div> -->
+
+    <div id="error" ng-if="signupCtrl.error">
+        No such menu number exists
+    </div>
+    <div id="info" ng-if="signupCtrl.saved">
+      Your information has been saved!
+      <a ui-sref="public.userInfo">View your information!</a>
+    </div>
+
+  </form>
+</div>
