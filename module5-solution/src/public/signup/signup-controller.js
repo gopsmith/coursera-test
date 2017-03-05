@@ -22,7 +22,7 @@ function SignupController(MenuService) {
           'menuItem': menuItem
         };
         MenuService.saveUserPreferences(userPrefs);
-        console.log (MenuService.getUserPreferences());
+        //console.log (MenuService.getUserPreferences());
         $ctrl.saved = true;
       }
     });

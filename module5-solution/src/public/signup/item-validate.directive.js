@@ -12,7 +12,7 @@ function ItemValidate() {
       //console.log ('scope = ', scope)
       //console.log ('controller = ', mCtrl)
       function myValidation(value) {
-        console.log ('value = ', value);
+        //console.log ('value = ', value);
         scope.signupCtrl.validateMenuItem(value)
         .then(function() {
           if (!scope.signupCtrl.error) {
