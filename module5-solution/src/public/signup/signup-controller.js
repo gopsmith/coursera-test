@@ -10,28 +10,34 @@ function SignupController(MenuService) {
   $ctrl.error = false;
 
   $ctrl.submit = function () {
-    $ctrl.error = false;
     $ctrl.saved = false;
+    $ctrl.validateMenuItem($ctrl.itemCode)
+    .then(function(menuItem) {
+      if (!$ctrl.error) {
+        var userPrefs = {
+          'firstname': $ctrl.firstname,
+          'lastname': $ctrl.lastname,
+          'email': $ctrl.email,
+          'phone': $ctrl.phone,
+          'menuItem': menuItem
+        };
+        MenuService.saveUserPreferences(userPrefs);
+        console.log (MenuService.getUserPreferences());
+        $ctrl.saved = true;
+      }
+    });
+  };
 
-    var itemPromise = MenuService.getMenuItem($ctrl.itemCode.toUpperCase());
-
-    itemPromise.then(function(menuItem) {
-      console.log ("menuItem = ", menuItem);
-      var userPrefs = {
-        'firstname': $ctrl.firstname,
-        'lastname': $ctrl.lastname,
-        'email': $ctrl.email,
-        'phone': $ctrl.phone,
-        'menuItem': menuItem
-      };
-      MenuService.saveUserPreferences(userPrefs);
-      console.log (MenuService.savedPreferences)
-      $ctrl.saved = true;
+  $ctrl.validateMenuItem = function(itemCode) {
+    return MenuService.getMenuItem(itemCode.toUpperCase())
+    .then(function(menuItem) {
+      $ctrl.error = false;
+      return menuItem;
     })
     .catch(function(errorResponse) {
       $ctrl.error = true;
     });
-  }
+  };
 
 }
 
