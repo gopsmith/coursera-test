@@ -5,6 +5,12 @@ describe('getMenuItem', function () {
   var ApiPath;
 
   beforeEach(function () {
+    module(function ($provide) {
+      $provide.factory('loadingHttpInterceptor', function () {
+        return {request: null, response: null, responseError: null};
+      });
+    });
+
     module('common');
 
     inject(function ($injector) {
